@@ -32,6 +32,10 @@ public class Produto {
 			)
 	private List<Categoria> categorias = new ArrayList<>();
 	
+	/*
+	 * private List<Pedido> pedido = new ArrayList<>();
+	 */
+	
 	public Produto() {
 		
 	}
@@ -101,5 +105,10 @@ public class Produto {
 		return true;
 	}
 
+	/*
+	 * public List<Pedido> getPedido() { return pedido; }
+	 * 
+	 * public void setPedido(List<Pedido> pedido) { this.pedido = pedido; }
+	 */
 
 }
