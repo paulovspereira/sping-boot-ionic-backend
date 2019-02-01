@@ -1,7 +1,9 @@
 package com.pv.cursomc.domain;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
+import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -32,10 +37,19 @@ public class Produto {
 			)
 	private List<Categoria> categorias = new ArrayList<>();
 	
-	/*
-	 * private List<Pedido> pedido = new ArrayList<>();
-	 */
 	
+	 private List<Pedido> getPedidos(){
+		 List<Pedido> lista = new ArrayList<>();
+		 for(ItemPedido x : itens) {
+			 lista.add(x.getPedido());
+		 }
+		 return lista;
+	 }
+	 
+	
+	@OneToMany(mappedBy="id.produto")
+	private Set<ItemPedido> itens = new HashSet<>();
+
 	public Produto() {
 		
 	}
@@ -105,10 +119,14 @@ public class Produto {
 		return true;
 	}
 
-	/*
-	 * public List<Pedido> getPedido() { return pedido; }
-	 * 
-	 * public void setPedido(List<Pedido> pedido) { this.pedido = pedido; }
-	 */
+	public Set<ItemPedido> getItens() {
+		return itens;
+	}
+
+	public void setItens(Set<ItemPedido> itens) {
+		this.itens = itens;
+	}
+
+	
 
 }
