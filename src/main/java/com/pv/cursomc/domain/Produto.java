@@ -17,6 +17,7 @@ import javax.persistence.OneToMany;
 import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Produto {
@@ -37,7 +38,7 @@ public class Produto {
 			)
 	private List<Categoria> categorias = new ArrayList<>();
 	
-	
+	@JsonIgnore
 	 private List<Pedido> getPedidos(){
 		 List<Pedido> lista = new ArrayList<>();
 		 for(ItemPedido x : itens) {
@@ -46,7 +47,7 @@ public class Produto {
 		 return lista;
 	 }
 	 
-	
+	@JsonIgnore
 	@OneToMany(mappedBy="id.produto")
 	private Set<ItemPedido> itens = new HashSet<>();
 
