@@ -1,0 +1,107 @@
+[33mcommit ddb8f0dcbcdd9645f872bc5423bbb48a7da6b651[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Paulo Pereira <paulovspereira@gmail.com>
+Date:   Tue Feb 5 13:21:26 2019 -0200
+
+    Atualizando categorias e pequenos ajustes
+
+[33mcommit c97643286102ae59930f69e8a342b8ed76a5925d[m
+Author: Paulo Pereira <paulovspereira@gmail.com>
+Date:   Mon Feb 4 12:43:34 2019 -0200
+
+    Inserindo uma nova categoria
+
+[33mcommit 77d97f1a1372804bdae28a024fb4f36050d4e90d[m
+Author: Paulo Pereira <paulovspereira@gmail.com>
+Date:   Sun Feb 3 01:18:30 2019 -0200
+
+    Atualização
+
+[33mcommit 850e88669baf08f7e52898f51e28d422b0779819[m
+Author: Paulo Pereira <paulovspereira@gmail.com>
+Date:   Fri Feb 1 20:36:43 2019 -0200
+
+    JsonIgonre
+
+[33mcommit 49d70aafdc30731e2246a2caf660319d1165add4[m
+Author: Paulo Pereira <paulovspereira@gmail.com>
+Date:   Fri Feb 1 20:21:23 2019 -0200
+
+    EndpointPedido/Pedido/id disponibilizado
+
+[33mcommit 3b397c81190d19775698912657f1a57041ebd870[m
+Author: Paulo Pereira <paulovspereira@gmail.com>
+Date:   Fri Feb 1 19:27:21 2019 -0200
+
+    ItemPedido, ItemPedidoPk
+
+[33mcommit cca099e6f90e3f1d0a46bb8fc53ac6d04b261243[m
+Author: Paulo Pereira <paulovspereira@gmail.com>
+Date:   Thu Jan 31 14:59:02 2019 -0200
+
+    Pedido, EstadoPagemnto, Pagemnto
+
+[33mcommit 3ade5b3c42325ceb7eee186a1595b447499dff8e[m
+Author: Paulo Pereira <paulovspereira@gmail.com>
+Date:   Wed Jan 30 20:48:58 2019 -0200
+
+    Endpoint Cliente/id
+
+[33mcommit 67e45ee4116ee75e45e9516ee87abf778b22b85d[m[33m ([m[1;31morigin/CategoriaResource[m[33m)[m
+Author: Paulo Pereira <paulovspereira@gmail.com>
+Date:   Tue Jan 29 17:28:01 2019 -0200
+
+    Cliente, TipoCliente, Endereço, Telefone
+
+[33mcommit 724c98361323af0f352aea35f398fa1415cbc709[m
+Author: Paulo Pereira <paulovspereira@gmail.com>
+Date:   Tue Jan 29 15:30:45 2019 -0200
+
+    Fazendo a classes Estado e Cidade
+
+[33mcommit 8644b3e38427e02b0dc413d76cd9638921d56d75[m
+Author: Paulo Pereira <paulovspereira@gmail.com>
+Date:   Tue Jan 29 14:44:56 2019 -0200
+
+    Tratamento de erros no endpoint
+
+[33mcommit 99400d6f2e4bf3b5527d903c7991fc47fa9e936d[m
+Author: Paulo Pereira <paulovspereira@gmail.com>
+Date:   Mon Jan 28 17:49:11 2019 -0200
+
+    Produto  e associacao muitos para muitos
+
+[33mcommit 06b6c7fa706a14de4d68545faf4a4c15296bb870[m
+Author: Paulo Pereira <paulovspereira@gmail.com>
+Date:   Sun Jan 27 20:26:45 2019 -0200
+
+    Criando operacao de instacioação
+
+[33mcommit e7f6c1f7a1a3ab71aa3f6284f070dbfa409b5daf[m
+Author: Paulo Pereira <paulovspereira@gmail.com>
+Date:   Sun Jan 27 19:57:21 2019 -0200
+
+    Criando as categorias
+
+[33mcommit 57115e4fa806a7f1c6b25d76a522ad502319b816[m
+Author: Paulo Pereira <paulovspereira@gmail.com>
+Date:   Fri Jan 25 00:12:12 2019 -0200
+
+    Banco de dados H2 criação de dados
+
+[33mcommit 017be96f9ba142bf80654a0bd8fb0579589654c0[m
+Author: Paulo Pereira <paulovspereira@gmail.com>
+Date:   Thu Jan 24 22:58:25 2019 -0200
+
+    Testanto a primeira classe de dominio
+
+[33mcommit 931a74704471bedd8b37bf43254f6fa80f8de3b6[m
+Author: Paulo Pereira <paulovspereira@gmail.com>
+Date:   Thu Jan 24 22:28:51 2019 -0200
+
+    Testanto o rest
+
+[33mcommit b31791b5acb007e10d41350d09480e6594058b38[m
+Author: Paulo Pereira <paulovspereira@gmail.com>
+Date:   Thu Jan 24 21:24:23 2019 -0200
+
+    Projeto foi criado
