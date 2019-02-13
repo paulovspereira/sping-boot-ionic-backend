@@ -12,6 +12,7 @@ import com.pv.cursomc.domain.ItemPedido;
 import com.pv.cursomc.domain.PagamentoComBoleto;
 import com.pv.cursomc.domain.Pedido;
 import com.pv.cursomc.domain.enuns.EstadoPagamento;
+import com.pv.cursomc.repositories.ClienteRepository;
 import com.pv.cursomc.repositories.ItemPedidoRepository;
 import com.pv.cursomc.repositories.PagamentoRepository;
 import com.pv.cursomc.repositories.PedidoRepository;
@@ -44,6 +45,8 @@ public class PedidoService {
 	@Autowired
 	private ProdutoRepository produtoRepository;
 	
+	@Autowired
+	private ClienteService clienteService;
 	
 	public Pedido find(Integer id) {
 		Optional<Pedido> obj = repo.findById(id);
@@ -56,6 +59,7 @@ public class PedidoService {
 	public Pedido insert(Pedido obj) {
 		obj.setId(null);
 		obj.setInstante(new Date());
+		obj.setCliente(clienteService.find(obj.getCliente().getId()));
 		obj.getPagamento().setEstado(EstadoPagamento.PENDENTE);
 		obj.getPagamento().setPedido(obj);
 		
@@ -73,7 +77,7 @@ public class PedidoService {
 			ip.setPedido(obj);
 		}
 		itemPedidoRepository.saveAll(obj.getItens());
-		
+		System.out.println(obj);
 		return obj;
 	}
 }
