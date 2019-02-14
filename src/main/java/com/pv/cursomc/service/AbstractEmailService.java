@@ -17,14 +17,13 @@ import com.pv.cursomc.domain.Pedido;
 
 public abstract class AbstractEmailService implements EmailService{
 	
-	@Value("${default.sender}")
-	private String sender;
-	
 	@Autowired
 	private TemplateEngine templateEngine;
-	
 	@Autowired
 	private JavaMailSender javaMailSender;
+	
+	@Value("${default.sender}")
+	private String sender;
 	
 	@Override
 	public void sendOrderConfirmationEmail(Pedido obj) {
