@@ -3,8 +3,7 @@ package com.pv.cursomc.domain.enuns;
 public enum Perfil {
 
 	ADMIN(1, "ROLE_ADMIN"),
-	CLIENTE(2, "ROLE_ADMIN"),
-	CANCELADO(3, "Cancelado");
+	CLIENTE(2, "ROLE_ADMIN");
 	
 	private int cod;
 	private String descricao;
