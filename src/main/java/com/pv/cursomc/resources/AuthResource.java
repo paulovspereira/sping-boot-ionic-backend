@@ -10,9 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.pv.cursomc.dto.EmailDTO;
 import com.pv.cursomc.security.JWTUtil;
 import com.pv.cursomc.security.UserSS;
+import com.pv.cursomc.service.AuthService;
 import com.pv.cursomc.service.UserService;
 
 @RestController
@@ -22,6 +23,8 @@ public class AuthResource {
 	@Autowired
 	private JWTUtil jwtUtil;
 	
+	@Autowired
+	private AuthService service;
 	
 	@RequestMapping(value = "/refresh_token", method = RequestMethod.POST)
 	public ResponseEntity<Void> refreshToken(HttpServletResponse response) {
@@ -32,5 +35,9 @@ public class AuthResource {
 		return ResponseEntity.noContent().build();
 	}
 	
-
+	@RequestMapping(value = "/forgot", method = RequestMethod.POST)
+	public ResponseEntity<Void> forgot(@Valid @RequestBody EmailDTO objDto) {
+		service.sendNewPassword(objDto.getEmail());
+		return ResponseEntity.noContent().build();
+	}
 }
