@@ -15,6 +15,7 @@ import com.pv.cursomc.domain.Categoria;
 import com.pv.cursomc.domain.Cidade;
 import com.pv.cursomc.domain.Cliente;
 import com.pv.cursomc.domain.Endereco;
+import com.pv.cursomc.domain.enuns.Perfil;
 import com.pv.cursomc.domain.enuns.TipoCliente;
 import com.pv.cursomc.domain.Cliente;
 import com.pv.cursomc.dto.ClienteDTO;
@@ -22,6 +23,8 @@ import com.pv.cursomc.dto.ClienteNewDTO;
 import com.pv.cursomc.repositories.CidadeRepository;
 import com.pv.cursomc.repositories.ClienteRepository;
 import com.pv.cursomc.repositories.EnderecoRepository;
+import com.pv.cursomc.security.UserSS;
+import com.pv.cursomc.service.exception.AuthorizationException;
 import com.pv.cursomc.service.exception.DataIntegrityExcepetion;
 import com.pv.cursomc.service.exception.ObjectNotFoundException;
 
@@ -41,6 +44,12 @@ public class ClienteService {
 	private BCryptPasswordEncoder pe;
 	
 	public Cliente find(Integer id) {
+		
+		UserSS user = UserService.authenticated();
+		if (user==null || !user.hasRole(Perfil.ADMIN) && !id.equals(user.getId())) {
+			throw new AuthorizationException("Acesso negado");
+		}
+		
 		Optional<Cliente> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				      "Objeto não encontrado! ID: " + id + ", Tipo: " + Cliente.class.getName()));
