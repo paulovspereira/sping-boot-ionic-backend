@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.pv.cursomc.domain.Cliente;
 import com.pv.cursomc.repositories.ClienteRepository;
-import com.pv.cursomc.services.exceptions.ObjectNotFoundException;
+import com.pv.cursomc.service.exception.ObjectNotFoundException;
 
 @Service
 public class AuthService {
