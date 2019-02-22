@@ -1,5 +1,6 @@
 package com.pv.cursomc.service;
 
+import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,14 +11,13 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
-import com.pv.cursomc.domain.Categoria;
 import com.pv.cursomc.domain.Cidade;
 import com.pv.cursomc.domain.Cliente;
 import com.pv.cursomc.domain.Endereco;
 import com.pv.cursomc.domain.enuns.Perfil;
 import com.pv.cursomc.domain.enuns.TipoCliente;
-import com.pv.cursomc.domain.Cliente;
 import com.pv.cursomc.dto.ClienteDTO;
 import com.pv.cursomc.dto.ClienteNewDTO;
 import com.pv.cursomc.repositories.CidadeRepository;
@@ -42,6 +42,9 @@ public class ClienteService {
 	
 	@Autowired
 	private BCryptPasswordEncoder pe;
+	
+	@Autowired
+	private S3Service s3Service;
 	
 	public Cliente find(Integer id) {
 		
@@ -116,5 +119,9 @@ public class ClienteService {
 		}
 		
 		return cli;
+	}
+	
+	public URI uploadProfilePicture(MultipartFile multipartFile) {
+		return s3Service.uploadFile(multipartFile);
 	}
 }
