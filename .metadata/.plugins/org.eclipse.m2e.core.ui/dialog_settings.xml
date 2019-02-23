@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\psantosp\git\sping-boot-ionic-backend"/>
 			<item value="C:\Windows\Temp\ws\sping-boot-ionic-backend"/>
 		</list>
 		<list key="projectNameTemplate">
