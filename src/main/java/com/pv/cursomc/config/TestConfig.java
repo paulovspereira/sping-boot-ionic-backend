@@ -11,8 +11,8 @@ import com.pv.cursomc.service.DBService;
 import com.pv.cursomc.service.EmailService;
 import com.pv.cursomc.service.MockEmailService;
 
-@Configuration
-@Profile("test")
+@Configuration // Arquivo de configuração
+@Profile("test") // Profile de teste
 public class TestConfig {
 
 	@Autowired

@@ -23,14 +23,16 @@ import com.pv.cursomc.domain.Categoria;
 import com.pv.cursomc.dto.CategoriaDTO;
 import com.pv.cursomc.service.CategoriaService;
 
-@RestController
-@RequestMapping(value="/categorias")
+@RestController //Anotações do spring boot - Controlador Rest ela responde pelo endpoint categorias
+@RequestMapping(value="/categorias")  // Nome do endpoint mapeado
 public class CategoriaResource {
 
 	@Autowired
 	private CategoriaService service;
 	
-	@RequestMapping(value="/{id}",method=RequestMethod.GET)
+	// @ResponseEntity tipos de retorno de rest
+	// @PtahVariable Para que spring que esse id da url tem que vim para id da variavel tem que usar essa a anotação
+	@RequestMapping(value="/{id}",method=RequestMethod.GET)  // tem que receber o ID através Value
 	public ResponseEntity<Categoria> find(@PathVariable Integer id) {
 		
 		Categoria obj  = service.find(id);

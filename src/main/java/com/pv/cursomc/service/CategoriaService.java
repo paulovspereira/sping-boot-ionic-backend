@@ -17,12 +17,15 @@ import com.pv.cursomc.repositories.CategoriaRepository;
 import com.pv.cursomc.service.exception.DataIntegrityExcepetion;
 import com.pv.cursomc.service.exception.ObjectNotFoundException;
 
+// Camada implementa a regra de negocios
 @Service
 public class CategoriaService {
 
-	@Autowired
+	@Autowired // Automaticamento instaciodo
 	private CategoriaRepository repo;
 	
+	
+	//Serviço que busca uma categoria
 	public Categoria find(Integer id) {
 		Optional<Categoria> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(

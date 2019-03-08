@@ -5,7 +5,9 @@ import org.springframework.stereotype.Repository;
 
 import com.pv.cursomc.domain.Categoria;;
 
-@Repository
+//Utliliza camada service para fazer comunicação com camada de dominio
+
+@Repository // Realizar operações acesso a dados
 public interface CategoriaRepository extends JpaRepository<Categoria, Integer>{
 
 }

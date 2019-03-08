@@ -27,7 +27,7 @@ public class Categoria implements Serializable{
 	private String nome;
 	
 	
-	@ManyToMany(mappedBy="categorias")
+	@ManyToMany(mappedBy="categorias") // Usada para definir que o JPA tem que buscas tabela produto 
 	private List<Produto> produtos = new ArrayList<>();
 	
 	public Categoria() {}
