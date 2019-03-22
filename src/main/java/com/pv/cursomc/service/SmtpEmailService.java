@@ -10,7 +10,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service//Associada com classes que representam a ideia do Service do Domain Driven Design
 public class SmtpEmailService extends AbstractEmailService {
 
 	private static final Logger LOG = LoggerFactory.getLogger(SmtpEmailService.class);

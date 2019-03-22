@@ -31,7 +31,7 @@ public class ClienteResource {
 	@Autowired
 	private ClienteService service;
 	
-	@RequestMapping(value="/{id}",method=RequestMethod.GET)
+	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity<Cliente> find(@PathVariable Integer id) {
 		
 		Cliente obj  = service.find(id);
@@ -45,16 +45,16 @@ public class ClienteResource {
 	}
 	
 	
-	  @RequestMapping(method=RequestMethod.POST) 
-	  public ResponseEntity<Void> insert(@Valid @RequestBody ClienteNewDTO objDTO) { 
-		  Cliente obj = service.fromDTO(objDTO); obj = service.insert(obj);
-		  URI uri =ServletUriComponentsBuilder.fromCurrentRequest()
-	       .path("/{id}").buildAndExpand(obj.getId()).toUri();
-	  
-	  return ResponseEntity.created(uri).build(); 
-	  
-	 }
-	 
+	@RequestMapping(method=RequestMethod.POST)
+	public ResponseEntity<Void> insert(@Valid @RequestBody ClienteNewDTO objDto) {
+		Cliente obj = service.fromDTO(objDto);
+		obj = service.insert(obj);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+				.path("/{id}").buildAndExpand(obj.getId()).toUri();
+		return ResponseEntity.created(uri).build();
+	}
+	
+	
 	  
 	  @RequestMapping(value="/{id}", method=RequestMethod.PUT)
 	  public ResponseEntity<Void> update(@Valid @RequestBody ClienteDTO objDTO, @PathVariable Integer id){

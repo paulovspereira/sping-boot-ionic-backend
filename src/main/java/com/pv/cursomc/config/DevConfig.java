@@ -12,17 +12,17 @@ import com.pv.cursomc.service.DBService;
 import com.pv.cursomc.service.EmailService;
 import com.pv.cursomc.service.SmtpEmailService;
 
-@Configuration
+@Configuration //Anotação que indica classe possui método configuração(bean)
 @Profile("dev")
 public class DevConfig {
 
 	@Autowired
 	private DBService dbService;
 	
-	@Value("${spring.jpa.hibernate.ddl-auto}")
+	@Value("${spring.jpa.hibernate.ddl-auto}")// Propriedade é especificada do Spring Data JPA uma maneira especificar um valor
 	private String strategy;
 	
-	@Bean
+	@Bean // Quando os metodos pode ser enjetados em qualque ponto da aplicação
 	public boolean instantiateDatabase() throws ParseException {
 		
 		if (!"create".equals(strategy)) {

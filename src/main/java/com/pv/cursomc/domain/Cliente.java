@@ -26,13 +26,9 @@ import com.pv.cursomc.domain.enuns.Perfil;
 import com.pv.cursomc.domain.enuns.TipoCliente;
 
 @Entity
-public class Cliente implements Serializable{
-
-	/**
-	 * 
-	 */
+public class Cliente implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
@@ -51,15 +47,15 @@ public class Cliente implements Serializable{
 	
 	@ElementCollection
 	@CollectionTable(name="TELEFONE")
-	private Set<String> telefone = new HashSet<>();
-	
-	@JsonIgnore //Pedidos de um clientes não for ser redesenrizado
-	@OneToMany(mappedBy="cliente")
-	private List<Pedido> pedidos = new ArrayList<>();
+	private Set<String> telefones = new HashSet<>();
 	
 	@ElementCollection(fetch=FetchType.EAGER)
-		@CollectionTable(name="PERFIS")
+	@CollectionTable(name="PERFIS")
 	private Set<Integer> perfis = new HashSet<>();
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="cliente")
+	private List<Pedido> pedidos = new ArrayList<>();
 	
 	public Cliente() {
 		addPerfil(Perfil.CLIENTE);
@@ -116,6 +112,22 @@ public class Cliente implements Serializable{
 		this.tipo = tipo.getCod();
 	}
 
+	public String getSenha() {
+		return senha;
+	}
+	
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	
+	public Set<Perfil> getPerfis() {
+		return perfis.stream().map(x -> Perfil.toEnum(x)).collect(Collectors.toSet());
+	}
+	
+	public void addPerfil(Perfil perfil) {
+		perfis.add(perfil.getCod());
+	}
+	
 	public List<Endereco> getEnderecos() {
 		return enderecos;
 	}
@@ -124,14 +136,22 @@ public class Cliente implements Serializable{
 		this.enderecos = enderecos;
 	}
 
-	public Set<String> getTelefone() {
-		return telefone;
+	public Set<String> getTelefones() {
+		return telefones;
 	}
 
-	public void setTelefone(Set<String> telefone) {
-		this.telefone = telefone;
+	public void setTelefones(Set<String> telefones) {
+		this.telefones = telefones;
 	}
 
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -155,32 +175,5 @@ public class Cliente implements Serializable{
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}
-
-	public List<Pedido> getPedidos() {
-		return pedidos;
-	}
-
-	public void setPedidos(List<Pedido> pedidos) {
-		this.pedidos = pedidos;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-	
-	public Set<Perfil> getPerfis(){
-		return perfis.stream().map(x -> Perfil.toEnum(x)).collect(Collectors.toSet());
-		
-	}
-	
-	public void addPerfil(Perfil perfil) {
-		perfis.add(perfil.getCod());
-	}
-	
-	
+	}	
 }
